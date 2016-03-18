@@ -1,6 +1,6 @@
 var AWS = require('aws-sdk');
 var defaultAWSHost = 's3.amazon.com';
-
+var path = require('path');
 var config = {};
 config.options = { root: path.normalize(__dirname + '/../../') };
 
