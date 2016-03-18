@@ -1,0 +1,25 @@
+{
+    "name": "s3-proxy-demo",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "NODE_ENV=dev node ./server/app"
+    },
+    "dependencies": {
+        "body-parser": "^1.14.1",
+        "cookie-parser": "^1.4.0",
+        "debug": "^2.2.0",
+        "ejs": "^2.3.4",
+        "express": "^4.13.3",
+        "morgan": "^1.6.1",
+        "serve-favicon": "^2.3.0"
+    },
+    "devDependencies": {},
+    "description": "Demonstrates method for using server as an S3 proxy.",
+    "main": "server.js",
+    "directories": {
+        "test": "test"
+    },
+    "author": "",
+    "license": "ISC"
+}
