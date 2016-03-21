@@ -1,5 +1,5 @@
 # S3 Video Streaming Demo  
-Demo for Streaming a video from S3 through a webserver.
+Demo for Streaming a video from S3 through a webserver. 
 
 ## Running the Application
 1. Make sure you have git, nodejs, and npm installed on your machine. Installation instructions for your platform are readily available with a simple google search.
@@ -17,3 +17,4 @@ Demo for Streaming a video from S3 through a webserver.
   * We can dynamically support S3-like hosting environments. OpenStack Swift implements the S3 api but servers will never live at `s3.amazonaws.com` (the default S3 hostname). By simply configuring the AWS SDK (via the `S3_HOST` environment variable in this case) to point at the OpenStack Swift host URL, we can support OpenStack Swift stored files using the AWS S3 SDK/API.
 2. Notice in `server/routes/api.js` how we intercept calls to `/video/*` and use the `server/controllers/s3controller.js` to stream the requested video to the browser.
 
+**Disclaimer** This is not production ready code and should not be treated as such. This is for demonstration purposes only
