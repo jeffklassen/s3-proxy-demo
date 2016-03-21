@@ -13,7 +13,7 @@ Demo for Streaming a video from S3 through a webserver.
 
 ## Key points
 1. Notice how in `index.html` how the `<video>` tag is pointing at a resource on the local webserver. We want to stream the video through our local server rather than directly from s3. This allows us a great deal more flexibility in our implementation:
-  * We can stream private s3 objects. Obviously, we won't want to make vendor content public on S3. In order to stream private objects, we must configure the AWS_ACCESS_ID and SECRET_ACCESS_KEY. For obvious security reasons, should never be done via javascript in the browser.
-  * We can dynamically support s3-like hosting environments. OpenStack Swift implements the S3 api but servers will never live at `s3.amazonaws.com` (the default S3 hostname). By simply configuring the AWS SDK (via the `S3_HOST` environment variable in this case) to point at the OpenStack Swift host URL, we can support OpenStack Swift stored files using the AWS S3 SDK/API.
+  * We can stream private S3 objects. Obviously, we won't want to make vendor content public on S3. In order to stream private objects, we must configure the AWS_ACCESS_ID and SECRET_ACCESS_KEY. For obvious security reasons, this should never be done via javascript in the browser.
+  * We can dynamically support S3-like hosting environments. OpenStack Swift implements the S3 api but servers will never live at `s3.amazonaws.com` (the default S3 hostname). By simply configuring the AWS SDK (via the `S3_HOST` environment variable in this case) to point at the OpenStack Swift host URL, we can support OpenStack Swift stored files using the AWS S3 SDK/API.
 2. Notice in `server/routes/api.js` how we intercept calls to `/video/*` and use the `server/controllers/s3controller.js` to stream the requested video to the browser.
 
