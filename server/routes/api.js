@@ -1,5 +1,5 @@
 var express = require('express');
-var collectionsController = require('../controllers/s3Controller');
+var s3Controller = require('../controllers/s3Controller');
 var config = require('../config/config').options;
 
 
@@ -17,8 +17,10 @@ module.exports = function (app) {
     clientRoutes.get('/index.html', function (req, res, next) {
         res.sendFile('/client/index.html', config);
     });
-    clientRoutes.get('/s3/*', function (req, res, next) {
-        res.sendFile('/client/index.html', config)
+    clientRoutes.get('/video/*', function(req, res, next) {
+        var path = req.path.substr('/video/'.length);
+        console.log(path);
+        s3Controller.streamVideo(path, req, res);
     });
     app.use('/', clientRoutes);
 

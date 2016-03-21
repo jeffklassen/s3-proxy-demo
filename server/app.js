@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var debug = require('debug')('server:server');
 var http = require('http');
 require('./config/config').options;
+var s3 = require('./config/config').s3();
 
 //routers
 var routes = require('./routes/api');
@@ -26,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-routes(app);
+routes(app, s3);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
