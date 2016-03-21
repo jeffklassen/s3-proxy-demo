@@ -18,7 +18,7 @@ module.exports = function (app) {
         res.sendFile('/client/index.html', config);
     });
     clientRoutes.get('/video/*', function(req, res, next) {
-        var path = req.path.substr('/video'.length);
+        var path = req.path.substr('/video/'.length);
         console.log(path);
         s3Controller.streamVideo(path, req, res);
     });
