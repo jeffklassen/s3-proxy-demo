@@ -11,9 +11,6 @@ module.exports = function (app) {
         analysisController.getMostRecent(req.params.collectionId, req, res);
     });
 
-   
-    
-    //route of the 
     clientRoutes.get('/index.html', function (req, res, next) {
         res.sendFile('/client/index.html', config);
     });
